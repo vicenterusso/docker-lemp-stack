@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.18
+FROM phusion/baseimage
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -13,11 +13,11 @@ RUN \
   dpkg-reconfigure locales && \
   export LANG=en_US.UTF-8 && \
   apt-get install -y nano wget curl python htop git locate zip unzip telnet zsh python-software-properties software-properties-common build-essential libpcre3-dev nodejs npm ant && \
-  add-apt-repository -y ppa:ondrej/php5-5.6 && \
+  add-apt-repository -y ppa:ondrej/php && \
   add-apt-repository -y ppa:brightbox/ruby-ng && \
   apt-get update && \
   apt-get dist-upgrade -y && \
-  apt-get install -y php5-cli php5-fpm php5-mysql php5-pgsql php5-sqlite php5-curl php5-gd php5-gmp php5-mcrypt php5-intl php5-dev php5-xsl php5-imap php5-ldap php5-imagick php5-memcache php5-memcached php-pear xvfb libsqlite3-dev ruby2.2 ruby2.2-dev libxext6 xfonts-75dpi fontconfig libxrender1 xfonts-base
+  apt-get install -y php5.6-cli php5.6-fpm php5.6-mysql php5.6-curl php5.6-gd php5.6-gmp php5.6-mcrypt php5.6-intl php5.6-dev php5.6-xsl php5.6-imap php5.6-imagick php5.6-memcache php5.6-memcached php-pear xvfb ruby2.2 ruby2.2-dev libxext6 xfonts-75dpi fontconfig libxrender1 xfonts-base
 
 RUN \
   yes '' | pecl install xdebug && \
